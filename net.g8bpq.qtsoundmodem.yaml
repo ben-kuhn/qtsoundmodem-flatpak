@@ -1,0 +1,31 @@
+app-id: net.g8bpq.qttermtcp
+runtime: org.kde.Platform
+runtime-version: '5.15-22.08'
+sdk: org.kde.Sdk
+command: QtTermTCP
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --share=network
+  - --filesystem=host
+  - --device=dri
+  - --device=all
+modules:
+  - name: QtTermTCP
+    buildsystem: qmake
+    build-commands:
+      - mkdir -p bin share/{applications,icons/hicolor/256x256/apps}
+      - install -D QtTermTCP /app/bin/QtTermTCP
+      - install -Dm 644 net.g8bpq.qttermtcp.desktop /app/share/applications/net.g8bpq.qttermtcp.desktop
+      - install -Dm 644 net.g8bpq.qttermtcp.png /app/share/icons/hicolor/256x256/apps/net.g8bpq.qttermtcp.png
+    sources:
+      - type: archive
+        url: http://www.cantab.net/users/john.wiseman/Downloads/QtTermSource.zip
+        sha256: 3e447ce2447da911457ff37fa4492ae93b623a284718114541a41d573eb499d9
+        x-checker-data:
+          is-main-source: true
+      - type: file
+        path: net.g8bpq.qttermtcp.desktop
+      - type: file
+        path: net.g8bpq.qttermtcp.png
