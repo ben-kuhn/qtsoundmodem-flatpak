@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=QtSoundModem
+Exec=/app/bin/QtSoundModem
+Icon=net.g8bpq.qtsoundmodem.png
+Type=Application
+Categories=Network;HamRadio;
